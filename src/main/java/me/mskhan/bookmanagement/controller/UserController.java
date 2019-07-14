@@ -20,7 +20,6 @@ public class UserController {
 
     @PostMapping("/signup")
     public void signup(@RequestBody User theUser) {
-        String theUsername = theUser.getUsername();
         theUser.setPassword(bCryptPasswordEncoder.encode(theUser.getPassword()));
         userService.save(theUser);
     }
